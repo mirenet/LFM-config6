@@ -545,7 +545,7 @@ public class MainActivity extends AppCompatActivity {
             forceDark = parseBoolean(jsContent, "forceDark", false);
             refreshOn = parseBoolean(jsContent, "refreshOn", false);
             scrollBar = parseBoolean(jsContent, "scrollBar", true);
-            desktop = parseBoolean(jsContent, "desktop", true);
+            desktop = parseBoolean(jsContent, "desktop", false);
                         
         } catch (Exception e) {
             copyAssetToFile("appConfig.js", configFile);
