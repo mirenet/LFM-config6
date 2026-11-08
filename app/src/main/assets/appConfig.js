@@ -5,9 +5,10 @@ broAgent: "",
 portrait: true, 
 screenOn: false,
 allowZoom: false,
-scrollBar: true,
 forceDark: false,
-refreshOn: false
+refreshOn: false,
+scrollBar: true,
+desktop: false
 };
 
 // Fetch parameters:
