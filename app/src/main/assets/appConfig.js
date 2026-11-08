@@ -8,8 +8,9 @@ allowZoom: false,
 forceDark: false,
 refreshOn: false,
 scrollBar: true,
-mobView: true
+mobilView: true
 };
+
 
 // Fetch parameters:
 // #api;
