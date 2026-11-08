@@ -51,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
     private String broAgent = "";
     private boolean portrait = true;
     private boolean screenOn = false;
-    private boolean allowZoom = false;
-    private boolean scrollBar = true;
+    private boolean allowZoom = false;    
     private boolean forceDark = false;
     private boolean refreshOn = false;
+    private boolean scrollBar = true;
+    private boolean desktop = false;
     private WebView webView;
     private WebView overlayWebView; 
     private MenuControler menuControler;
@@ -190,8 +191,9 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setSupportZoom(allowZoom);
         webSettings.setBuiltInZoomControls(allowZoom);
         webSettings.setDisplayZoomControls(false);
-        webSettings.setLoadWithOverviewMode(true);
-        webSettings.setUseWideViewPort(true);
+        
+        webSettings.setLoadWithOverviewMode(desktop);
+        webSettings.setUseWideViewPort(desktop);
 
         webView.setVerticalScrollBarEnabled(scrollBar);
         webView.setHorizontalScrollBarEnabled(scrollBar);
@@ -534,16 +536,17 @@ public class MainActivity extends AppCompatActivity {
             inputStream.read(buffer);
             String jsContent = new String(buffer, "UTF-8");
 
+            externalDomains = parseArray(jsContent, "external");
+            startURL = parseString(jsContent, "startURL", "");
+            broAgent = parseString(jsContent, "broAgent", "");
             portrait = parseBoolean(jsContent, "portrait", true);
             screenOn = parseBoolean(jsContent, "screenOn", false);
             allowZoom = parseBoolean(jsContent, "allowZoom", false); 
-            scrollBar = parseBoolean(jsContent, "scrollBar", true);
             forceDark = parseBoolean(jsContent, "forceDark", false);
             refreshOn = parseBoolean(jsContent, "refreshOn", false);
-            startURL = parseString(jsContent, "startURL", "");
-            broAgent = parseString(jsContent, "broAgent", "");
-            externalDomains = parseArray(jsContent, "external");
-
+            scrollBar = parseBoolean(jsContent, "scrollBar", true);
+            desktop = parseBoolean(jsContent, "desktop", true);
+                        
         } catch (Exception e) {
             copyAssetToFile("appConfig.js", configFile);
             loadConfigFromInternalStorage();
