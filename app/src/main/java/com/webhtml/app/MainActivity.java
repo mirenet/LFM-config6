@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean forceDark = false;
     private boolean refreshOn = false;
     private boolean scrollBar = true;
-    private boolean mobView = true;
+    private boolean mobilView = true;
     private WebView webView;
     private WebView overlayWebView; 
     private MenuControler menuControler;
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setDisplayZoomControls(false);
 
         // Set mobile-View or desktop-View..
-        boolean setView = !mobView; 
+        boolean setView = !mobilView; 
         webSettings.setLoadWithOverviewMode(setView);
         webSettings.setUseWideViewPort(setView);
 
@@ -548,7 +548,7 @@ public class MainActivity extends AppCompatActivity {
             forceDark = parseBoolean(jsContent, "forceDark", false);
             refreshOn = parseBoolean(jsContent, "refreshOn", false);
             scrollBar = parseBoolean(jsContent, "scrollBar", true);
-            mobView = parseBoolean(jsContent, "mobView", true);
+            mobilView = parseBoolean(jsContent, "mobilView", true);
                         
         } catch (Exception e) {
             copyAssetToFile("appConfig.js", configFile);
