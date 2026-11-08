@@ -8,7 +8,7 @@ allowZoom: false,
 forceDark: false,
 refreshOn: false,
 scrollBar: true,
-desktop: false
+mobView: true
 };
 
 // Fetch parameters:
