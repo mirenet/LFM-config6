@@ -193,8 +193,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setDisplayZoomControls(false);
 
         // Set mobile-View or desktop-View..
-        boolean isMobView = parseBoolean(jsContent, "mobView", true);
-        boolean setView = !isMobView; 
+        boolean setView = !mobView; 
         webSettings.setLoadWithOverviewMode(setView);
         webSettings.setUseWideViewPort(setView);
 
