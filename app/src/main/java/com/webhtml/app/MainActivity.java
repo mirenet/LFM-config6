@@ -192,12 +192,13 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setBuiltInZoomControls(allowZoom);
         webSettings.setDisplayZoomControls(false);
 
-        // Set mobile-View or desktop wide-View..
+        // Set mobile-View or desktop-View..
         boolean isMobView = parseBoolean(jsContent, "mobView", true);
         boolean setView = !isMobView; 
         webSettings.setLoadWithOverviewMode(setView);
         webSettings.setUseWideViewPort(setView);
 
+        // Show or hide scrollBar..
         webView.setVerticalScrollBarEnabled(scrollBar);
         webView.setHorizontalScrollBarEnabled(scrollBar);
 
